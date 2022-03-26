@@ -6,7 +6,7 @@ session_start();
 // Inclusion de la connexion à la base de donnée
 require_once('req/_connect.php');
 
-$sql = "SELECT * FROM liste";
+$sql = 'SELECT * FROM `liste`';
 
 // Préparation requête
 $query = $database->prepare($sql);
@@ -48,6 +48,16 @@ require_once('req/_close.php');
                 <?php
                 }
                 ?>
+                <?php
+                if (!empty($_SESSION['message'])) {
+                ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= $_SESSION['message']; ?>
+                    </div>
+                    <?= $_SESSION['message'] = ""; ?>
+                <?php
+                }
+                ?>
                 <h1>Liste des produits</h1>
                 <table class="table">
                     <thead>
@@ -63,11 +73,13 @@ require_once('req/_close.php');
                         foreach ($result as $produit) {
                         ?>
                             <tr>
-                                <td><?= $produit['id']; ?></td>
-                                <td><?= $produit['produit']; ?></td>
-                                <td><?= $produit['nombre']; ?></td>
-                                <td><?= $produit['prix']; ?></td>
-                                <td><a href="details.php?id=<?= $produit['id']; ?>">Voir</a></td>
+                                <td><?= $produit['id'] ?></td>
+                                <td><?= $produit['produit'] ?></td>
+                                <td><?= $produit['prix'] ?></td>
+                                <td><?= $produit['nombre'] ?></td>
+                                <td>
+                                    <a href="details.php?id=<?= $produit['id'] ?>">Voir</a>
+                                </td>
                             </tr>
                         <?php
                         }
