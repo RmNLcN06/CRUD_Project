@@ -40,7 +40,8 @@ require_once('req/_close.php');
                 <?php
                 if (!empty($_SESSION['erreur'])) {
                 ?>
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <a href="./index.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <?= $_SESSION['erreur']; ?>
                     </div>
                     <?= $_SESSION['erreur'] = ""; ?>
@@ -50,7 +51,8 @@ require_once('req/_close.php');
                 <?php
                 if (!empty($_SESSION['message'])) {
                 ?>
-                    <div class="alert alert-success" role="alert">
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <a href="./index.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <?= $_SESSION['message']; ?>
                     </div>
                     <?= $_SESSION['message'] = ""; ?>

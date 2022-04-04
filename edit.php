@@ -90,7 +90,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <?php
                 if (!empty($_SESSION['erreur'])) {
                 ?>
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <a href="./edit.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <?= $_SESSION['erreur']; ?>
                     </div>
                     <?= $_SESSION['erreur'] = ""; ?>

@@ -57,7 +57,8 @@ if ($_POST) {
                 <?php
                 if (!empty($_SESSION['erreur'])) {
                 ?>
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <a href="./add.php" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <?= $_SESSION['erreur']; ?>
                     </div>
                     <?= $_SESSION['erreur'] = ""; ?>
